@@ -1,0 +1,117 @@
+<html>
+<head> 
+  <title>
+    the countdown
+  </title>
+  <head>
+	<style type="text/css">
+    @import "jquery.countdown.css";
+
+    @font-face {
+      font-family: light;
+      src: url('assets/ContextRepriseLightSSi.ttf');
+    }
+
+    #defaultCountdown { 
+      width: auto; 
+      height: 200px; 
+      color : white;
+      background-color: black;
+      padding-top: 20px;
+      font-size: 60px;
+      border: 0px;
+      border-radius: 10px;
+
+    }
+
+    
+
+    body{
+      background: black;
+     
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-position:center;
+      background-size:cover;
+      font-family: light; 
+      color:white;
+    }
+
+    #heading{
+      color: grey;
+      width: 50%;
+      border-radius: 10px;
+      font-size : 80px;
+      padding: 15px;
+    }
+
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    a:visited{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+      
+    }
+
+  </style>
+ 
+ <script type="text/javascript" src="assets/jquery.js"></script>
+
+  <script type="text/javascript" src="jquery.countdown.js"></script>
+  <script src="snow/snow.js"></script>
+
+   <script>
+  $(document).ready( function(){
+          $.fn.snow({ minSize: 15, maxSize: 40, newOn: 1000, flakeColor: '#FFFFFF' });
+
+  });
+  </script>
+
+
+  <script type="text/javascript">
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var getDayOfWeek = date.getDay();
+   
+
+  
+$(function () {
+
+            $("#heading").text("winter in...");
+
+            $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, 2013, 12-1, 19, 13,45,0,0)});
+
+           
+});
+
+  function showpage(){
+        document.getElementById('body').style.display='';
+  } 
+  </script>
+</head>
+
+<body id="body" style="display:none;" onload="showpage()">
+  <a href = 'index.html'> Back</a>
+  <center>
+
+ <br><br><br>
+  <div id = 'heading' > </div>
+  <br><br><br>
+
+  <div id="defaultCountdown" ></div>
+
+
+  </center>
+</body>
+
+
+</html>

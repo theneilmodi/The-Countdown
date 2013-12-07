@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>
+			the countdown
+		</title>
+
+        <script type="text/javascript" src="assets/jquery.js"></script>
+        
+
+		<style>
+
+			@font-face {
+      			font-family: light;
+      			src: url('assets/ContextRepriseLightSSi.ttf');
+    		}
+
+    		body{
+    			 background: black;
+                
+                 
+      			 font-family: light; 
+                 color:white;
+                
+    		}
+
+            
+
+            #title-container{
+                 margin-top: 10%;
+                 width: auto;
+                 border-radius: 10px;
+                 padding: 15px;
+            }
+
+            #content-container{
+                 margin-top : 80px;
+                 width: auto;
+                 height: auto;
+              
+                 padding: 15px;
+                 
+            }
+
+
+    		.bigtitle{
+    			font-size: 90px;
+    		}
+
+    		.smalltitle{
+    			font-size: 20px;
+                color: red;  
+                padding-left:420px;
+                padding-top: -100px; 
+    		}
+
+    		a{
+                color: grey;
+    			text-decoration: none;
+    			font-size: 30px;
+                	
+    		}
+
+    		a:visited{
+                color: grey;
+    			text-decoration: none;
+    			font-size: 30px;	
+    		}
+
+    		a:hover{
+    			font-size: 40px;
+                color: white;
+    		}
+
+
+		</style>
+
+		<script>
+			function showpage(){
+				document.getElementById('body').style.display='';
+			}	
+
+      var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-45055480-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+		</script>
+
+    
+
+
+	</head>
+
+<body id="body" style="display:none;" onload="showpage()">
+<center>
+
+
+
+
+<div id = 'title-container'>
+    <div class = 'bigtitle'> <i>the</i> countdown </div> 
+    <div class = 'smalltitle'> by Nilay Modi </div> 
+</div>
+
+
+
+<div id = 'content-container'>
+    <a href = 'redirect.html'> what block is it</a><br><br><br><br>
+    <a href = 'winter.html'> when is winter break</a><br><br>
+    <a href = 'grad.html'> when is graduation</a><br><br>
+    <a href = 'summer.html'> when is summer</a><br><br>
+</div>
+
+
+<br>
+
+</center>
+</body>
+
+</html>

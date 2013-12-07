@@ -1,0 +1,111 @@
+<html>
+<head> 
+  <title>
+    the countdown
+  </title>
+  <style type="text/css">
+    @import "jquery.countdown.css";
+
+    @font-face {
+      font-family: light;
+      src: url('assets/ContextRepriseLightSSi.ttf');
+    }
+
+    #defaultCountdown { 
+      width: auto; 
+      height: 200px; 
+      color : white;
+      background-color: black;
+      padding-top: 20px;
+      font-size: 60px;
+      border: 0px;
+      border-radius: 10px;
+
+    }
+
+    
+
+    body{
+      background: black;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-position:center;
+      background-size:cover;
+      font-family: light; 
+      color:white;
+    }
+
+    #heading{
+      color: grey;
+      width: 50%;
+      border-radius: 10px;
+      font-size : 80px;
+      padding: 15px;
+    }
+
+    #depressed a{
+      color: #B22222;
+      font-size: 20px;
+    }
+
+
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    a:visited{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+     text-decoration: underline;
+    }
+
+  </style>
+ 
+ <script type="text/javascript" src="assets/jquery.js"></script>
+ 
+  <script type="text/javascript" src="jquery.countdown.js"></script>
+  <script type="text/javascript">
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var getDayOfWeek = date.getDay();
+   
+
+  
+$(function () {
+
+            $("#heading").text("graduation in...");
+
+            $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, 2014, 6-1, 5, 0,0,0,0)});
+
+            
+});
+
+  function showpage(){
+        document.getElementById('body').style.display='';
+  } 
+  </script>
+</head>
+
+<body id="body" style="display:none;" onload="showpage()">
+  <a href = 'index.html'> Back</a>
+  <center>
+
+ <br><br><br>
+  <div id = 'heading' > </div>
+  <br><br><br>
+
+  <div id="defaultCountdown"></div>
+
+  <br><br><br><br><br>
+  <div id = "depressed"> <a href = 'http://www.gncdubai.com/treatment/psychiatric-treatment/'> Feeling depressed? </a></div>
+  </center>
+</body>
+
+
+</html>

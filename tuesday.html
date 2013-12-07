@@ -1,0 +1,305 @@
+<html>
+<head> 
+  <title>
+    the countdown
+  </title>
+	<style type="text/css">
+    @import "jquery.countdown.css";
+
+    @font-face {
+      font-family: light;
+      src: url('assets/ContextRepriseLightSSi.ttf');
+    }
+
+    #defaultCountdown { 
+      width: auto; 
+      height: 200px; 
+      color : white;
+      background-color: black;
+      padding-top: 20px;
+      font-size: 60px;
+      border: 0px;
+      border-radius: 10px;
+
+    }
+
+    #defaultCountdown2 { 
+      width: auto; 
+      height: 200px; 
+      color : white;
+      background-color: black;
+      padding-top: 20px;
+      font-size: 60px;
+      border: 0px;
+      border-radius: 10px;
+
+    }
+
+    body{
+      background: black;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-position:center;
+      background-size:cover;
+      font-family: light; 
+      color:white;
+    }
+
+    #heading{
+      color: grey;
+      font-size : 30px;
+      padding : 15px;
+    }
+
+    #heading2{
+      color: grey;
+      font-size : 30px;
+      padding : 15px;
+    }
+
+    #scheduleType{
+       color: red;
+      font-size : 20px;
+      text-decoration: underline;
+    }
+
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    a:visited{
+      color: white;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  </style>
+	
+ <script type="text/javascript" src="assets/jquery.js"></script>
+<script type="text/javascript" src="jquery.countdown.js"></script>
+<script type="text/javascript">
+
+
+
+var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    if(hours < 10) hours = "0"+hours;
+     if(minutes < 10) minutes = "0"+minutes;
+    if(seconds < 10) seconds = "0"+seconds;
+    var inSeconds = hours+":"+minutes+":"+seconds;
+    
+
+var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var getDayOfWeek = date.getDay();
+
+$(function () {
+
+// Checking Day of the week
+if(getDayOfWeek == 0 || getDayOfWeek == 1 || getDayOfWeek == 2 ||getDayOfWeek == 3 || getDayOfWeek == 4){
+
+    var schedType = "Tuesday Schedule";
+
+    var homeroomStart = "07:45:00";
+    var homeroomEnd = "07:55:00";
+
+    var passing1Start = "07:55:00";
+    var passing1End = "08:00:00";
+
+    var block1Start = "08:00:00";
+    var block1End = "09:10:00";
+
+    var breakStart = "09:10:00";
+    var breakEnd = "09:35:00";
+
+    var block2Start = "09:35:00";
+    var block2End = "10:45:00";
+
+    // LUNCH 1 PEOPLE
+    var lunch1Start = "10:45:00";
+    var lunch1End = "11:20:00";
+
+    var block3Start_lunch1 = "11:20:00";
+    var block3End_lunch1 = "12:30:00";
+
+    // LUNCH 2 PEOPLE
+    var lunch2PassingStart = "10:45:00";
+    var lunch2PassingEnd = "10:50:00";
+
+    var block3Start_lunch2 = "10:50:00";
+    var block3End_lunch2 = "12:00:00";
+
+    var lunch2Start = "12:00:00";
+    var lunch2End = "12:30:00";
+
+    // START OF COMMON AGAIN
+    var passing4Start = "12:30:00";
+    var passing4End = "12:35:00";
+
+    var block4Start = "12:35:00";
+    var block4End = "13:45:00";
+
+
+
+  $("#scheduleType").text(schedType);
+    //Before Homeroom
+    if(inSeconds <= homeroomStart){
+        $("#heading").text("Home Room Starts In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 7,45,0,0), onExpiry: finish}); 
+    }
+
+    // During Homeroom
+    else if(inSeconds >= homeroomStart && inSeconds <= homeroomEnd){
+        $("#heading").text("Home Room Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 7,55,0,0), onExpiry: finish}); 
+    }
+
+    else if(inSeconds >= passing1Start && inSeconds <= passing1End){
+        $("#heading").text("1st Block Starts In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 8,0,0,0), onExpiry: finish}); 
+    }
+
+    else if(inSeconds >= block1Start && inSeconds <= block1End){
+        $("#heading").text("1st Block Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 9,10,0,0), onExpiry: finish}); 
+    }
+
+    else if(inSeconds >= breakStart && inSeconds <= breakEnd){
+        $("#heading").text("Break Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 9,35,0,0), onExpiry: finish}); 
+    }
+
+    else if(inSeconds >= block2Start && inSeconds <= block2End){
+        $("#heading").text("2nd Block Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 10,45,0,0), onExpiry: finish}); 
+      
+    }
+
+    // FIRST POSSIBILITY WITH THE LUNCHES
+    else if(inSeconds >= lunch1Start && inSeconds <= lunch1End){
+        $("#heading").text("First Lunch Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 11,20,0,0), onExpiry: finish}); 
+
+          if(inSeconds >= lunch2PassingStart && inSeconds <= lunch2PassingEnd){
+              $("#heading2").text("Passing For Second Lunch People Ends In...");
+            $(defaultCountdown2).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 10,50,0,0), onExpiry: finish}); 
+
+          }
+          // BETWEEN 11:20 to 11:45
+          else if(inSeconds >= block3Start_lunch2 && inSeconds <= lunch1End){
+
+            $("#heading2").text("Second Lunch : Block 3 Ends In...");
+            $(defaultCountdown2).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 12,00,0,0), onExpiry: finish}); 
+
+          }
+    }
+
+    // SECOND POSSIBILITY
+    else if(inSeconds >= block3Start_lunch1 && inSeconds <= block3End_lunch1){
+
+      $("#heading").text("First Lunch People : Block 3 Ends In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 12,30,0,0), onExpiry: finish}); 
+
+          if(inSeconds >= block3Start_lunch2 && inSeconds <= block3End_lunch2){
+              $("#heading2").text("Second Lunch People : Block 3 Ends In...");
+              $(defaultCountdown2).countdown({ 
+                until: $.countdown.UTCDate(+4, year, month, day, 12,00,0,0), onExpiry: finish}); 
+          }
+
+          // 2nd Sub
+          else if(inSeconds >= lunch2Start && inSeconds <= lunch2End){
+              $("#heading").text("Block 3 (First Lunch) Ends In... & Second Lunch Ends In...");
+              
+
+          }
+
+    }
+
+    else if(inSeconds >= passing4Start && inSeconds <= passing4End ){
+
+      $("#heading").text("Last Block Starts In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 12,35,0,0), onExpiry: finish}); 
+
+        
+    }
+
+    else if(inSeconds >= block4Start && inSeconds <= block4End){
+      $("#heading").text("School Finishes In...");
+        $(defaultCountdown).countdown({ 
+            until: $.countdown.UTCDate(+4, year, month, day, 13,45,0,0), onExpiry: finish}); 
+
+       
+    }
+
+    else{
+       $("#heading").css({"font-size": "90px"});
+       $("#heading").text("school is over");
+       $("#scheduleType").hide();
+       $("#defaultCountdown").hide();
+       $("#defaultCountdown2").hide();
+    }
+
+ 
+// IF WEEKEND 
+}else{
+      $("#heading").css({"font-size": "90px"});
+      $("#heading").text("weekend");
+      $("#scheduleType").hide();
+      $("#defaultCountdown").hide();
+      $("#defaultCountdown2").hide();
+}
+
+ 
+
+}); // END OF EVERYTHING
+
+
+
+function finish() { 
+    location.reload();
+}
+
+function showpage(){
+        document.getElementById('body').style.display='';
+}
+
+
+</script>
+
+</head>
+
+<body id="body" style="display:none;" onload="showpage()">
+  <a href = 'index.html'> Back</a>
+  <center>
+    <div id = 'scheduleType'> </div>
+
+    <br><br>
+  <div id = 'heading'> </div>
+    <br><br><br>
+  <div id="defaultCountdown"></div>
+
+    <br><br>
+  <div id = 'heading2'> </div>
+    <br><br><br>
+  <div id="defaultCountdown2"></div>
+ 
+  </center>  
+</body>
+
+</html>
